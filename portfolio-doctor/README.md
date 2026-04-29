@@ -17,7 +17,7 @@ A web app that analyzes any portfolio website and returns a detailed quality rep
 
 ## 🚀 Live Demo
 
-> Coming soon — deploying to Netlify
+>> 🔗 [portfolio-doctor-aygun.netlify.app](https://portfolio-doctor-aygun.netlify.app)
 
 ## 🛠️ Tech Stack
 
