@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# 🩺 Portfolio Doctor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web app that analyzes any portfolio website and returns a detailed quality report — powered by the **Google PageSpeed Insights API**.
 
-## Available Scripts
+![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat)
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+- 🔗 Analyze any website by URL
+- ⚡ Real scores via Google PageSpeed Insights API
+- 📊 4 categories: Performance, SEO, Accessibility, Best Practices
+- 🐛 Detailed issue breakdown with severity levels
+- 🗺️ Actionable improvement roadmap
+- 🎨 Clean, modern dark UI with smooth animations
+- 🔄 Demo mode works without an API key
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Live Demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+> Coming soon — deploying to Netlify
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React 18** — component-based UI
+- **Google PageSpeed Insights API** — real website analysis
+- **CSS Modules** — scoped, maintainable styles
+- **Google Fonts** — DM Serif Display + Outfit
 
-### `npm run build`
+## 📁 Project Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+src/
+├── App.js                  # Main component, state management
+├── App.css                 # Layout styles
+├── index.js                # Entry point
+├── index.css               # Global styles & CSS variables
+└── components/
+    ├── Header.js            # Hero title & badge
+    ├── UrlInput.js          # URL input + API key setup
+    ├── LoadingState.js      # Animated loading steps
+    ├── ScoreHero.js         # Animated score ring
+    ├── CategoryCards.js     # Performance / SEO / A11y / BP cards
+    ├── IssuesList.js        # Issues with severity badges
+    └── SuggestionsList.js   # Improvement roadmap
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⚙️ Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1. Clone the repo
 
-### `npm run eject`
+```bash
+git clone https://github.com/Vanitsas/portfolio-doctor.git
+cd portfolio-doctor
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 2. Install dependencies
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 3. Run locally
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm start
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 4. Get a free API key (optional)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Go to [Google Cloud Console](https://console.cloud.google.com)
+2. Create a new project
+3. Enable **PageSpeed Insights API**
+4. Generate an API key under **Credentials**
+5. Paste it into the app — without it, the app runs in demo mode
 
-### Code Splitting
+## 📸 How It Works
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. User enters a portfolio URL
+2. App calls the Google PageSpeed Insights API
+3. Returns scores across 4 categories (0–100)
+4. Displays issues found + a prioritized improvement roadmap
 
-### Analyzing the Bundle Size
+## 🤝 Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Pull requests are welcome. For major changes, please open an issue first.
 
-### Making a Progressive Web App
+## 📄 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT
