@@ -1,0 +1,76 @@
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Arka plan efekti */
+.glow {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #7c6aff18 0%, transparent 70%);
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* Results wrapper */
+.results {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Report footer */
+.report-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background: var(--surface);
+  border: 0.5px solid var(--border2);
+  border-radius: 14px;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.report-url {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.report-time {
+  font-size: 12px;
+  color: #ffffff20;
+}
+
+.new-analysis-btn {
+  background: transparent;
+  border: 0.5px solid var(--border2);
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--muted);
+  transition: all 0.2s;
+}
+
+.new-analysis-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent2);
+}
