@@ -125,3 +125,26 @@
   color: var(--accent2);
   transform: rotate(180deg);
 }
+
+.history-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.export-btn {
+  background: transparent;
+  border: 0.5px solid var(--border2);
+  border-radius: 10px;
+  padding: 4px 12px;
+  font-size: 12px;
+  color: var(--accent2);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.export-btn:hover {
+  border-color: var(--accent);
+  background: #7c6aff18;
+}

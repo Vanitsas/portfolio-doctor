@@ -7,14 +7,17 @@ function getScoreColor(score) {
   return '#ff5f5f';
 }
 
-function HistoryList({ history, onReanalyze, onClear }) {
+function HistoryList({ history, onReanalyze, onClear, onExport }) {
   if (!history || history.length === 0) return null;
 
   return (
     <div className="history-section">
       <div className="history-header">
         <div className="section-title">Recent analyses</div>
-        <button className="clear-btn" onClick={onClear}>Clear all</button>
+        <div className="history-actions">
+          <button className="export-btn" onClick={onExport}>Export CSV</button>
+          <button className="clear-btn" onClick={onClear}>Clear all</button>
+        </div>
       </div>
 
       <div className="history-list">

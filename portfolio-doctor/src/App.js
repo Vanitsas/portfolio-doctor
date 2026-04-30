@@ -159,6 +159,30 @@ function App() {
     setLoadingStep(0);
   };
 
+  const handleExportCSV = () => {
+    if (history.length === 0) return;
+  
+    const headers = ['Date', 'URL', 'Overall', 'Performance', 'SEO', 'Accessibility', 'Best Practices', 'Type'];
+    const rows = history.map(e => [
+      `"${e.date}"`,
+      `"${e.url}"`,
+      e.overall,
+      e.perf,
+      e.seo,
+      e.a11y,
+      e.bp,
+      e.isReal ? 'Real' : 'Demo'
+    ]);
+  
+  const csv = [headers, ...rows].map(r => r.join(',')).join('\n');
+  const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'portfolio-doctor-history.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+};
   return (
     <div className="app">
       <div className="glow" />
@@ -185,6 +209,7 @@ function App() {
           setHistory([]);
           localStorage.removeItem('pd_history');
         }}
+        onExport={handleExportCSV}
       />
     )}
   </>
