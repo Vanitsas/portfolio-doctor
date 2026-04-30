@@ -15,6 +15,7 @@ A web app that analyzes any portfolio website and returns a detailed quality rep
 - 🎨 Clean, modern dark UI with smooth animations
 - 🔄 Demo mode works without an API key
 - 🕓 Score history — last 10 analyses saved locally
+- 📥 CSV export — download full analysis history as a spreadsheet
 
 ## 🚀 Live Demo
 
