@@ -1,0 +1,127 @@
+.history-section {
+  margin-top: 1.5rem;
+}
+
+.history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.875rem;
+}
+
+.section-title {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 0.5px;
+  background: var(--border);
+}
+
+.clear-btn {
+  background: transparent;
+  border: none;
+  font-size: 12px;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color 0.2s;
+  margin-left: 12px;
+  flex-shrink: 0;
+}
+
+.clear-btn:hover {
+  color: var(--red);
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-item {
+  background: var(--surface);
+  border: 0.5px solid var(--border2);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: border-color 0.2s;
+}
+
+.history-item:hover {
+  border-color: var(--accent);
+}
+
+.history-score {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  flex-shrink: 0;
+  width: 48px;
+  text-align: center;
+}
+
+.history-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.history-url {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 3px;
+}
+
+.history-date {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 6px;
+}
+
+.history-cats {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.reanalyze-btn {
+  background: transparent;
+  border: 0.5px solid var(--border2);
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--muted);
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.reanalyze-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent2);
+  transform: rotate(180deg);
+}

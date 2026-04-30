@@ -7,6 +7,7 @@ import ScoreHero from './components/ScoreHero';
 import CategoryCards from './components/CategoryCards';
 import IssuesList from './components/IssuesList';
 import SuggestionsList from './components/SuggestionsList';
+import HistoryList from './components/HistoryList';
 
 function App() {
   // State'ler - uygulamanın hafızası
@@ -17,12 +18,38 @@ function App() {
   const [error, setError] = useState('');       // hata mesajı
   const [loadingStep, setLoadingStep] = useState(0); // loading animasyonu için
 
+  const [history, setHistory] = useState(() => {
+  try {
+    return JSON.parse(localStorage.getItem('pd_history') || '[]');
+  } catch {
+    return [];
+  }
+});
+
   // API key kaydet
   const handleSaveApiKey = (key) => {
     setApiKey(key);
     localStorage.setItem('psi_api_key', key);
   };
-
+  const saveToHistory = (data, analyzedUrl) => {
+    const newEntry = {
+      id: Date.now(),
+      url: analyzedUrl,
+      overall: data.overall,
+      perf: data.perf,
+      seo: data.seo,
+      a11y: data.a11y,
+      bp: data.bp,
+      isReal: data.isReal,
+      date: new Date().toLocaleDateString('tr-TR', {
+        day: '2-digit', month: 'short', year: 'numeric',
+        hour: '2-digit', minute: '2-digit'
+      }),
+    };
+    const updated = [newEntry, ...history].slice(0, 10);
+    setHistory(updated);
+    localStorage.setItem('pd_history', JSON.stringify(updated));
+  };
   // Mock veri üretici (API key yokken)
   const generateMockData = (inputUrl) => {
     const seed = inputUrl.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
@@ -113,6 +140,7 @@ function App() {
         data = generateMockData(cleanUrl);
       }
       clearInterval(stepInterval);
+      saveToHistory(data, cleanUrl);
       setResults({ ...data, url: cleanUrl });
       setStatus('done');
     } catch (err) {
@@ -139,16 +167,28 @@ function App() {
         <Header />
 
         {/* idle veya error durumunda input göster */}
-        {(status === 'idle' || status === 'error') && (
-          <UrlInput
-            url={url}
-            setUrl={setUrl}
-            apiKey={apiKey}
-            onSaveApiKey={handleSaveApiKey}
-            onAnalyze={handleAnalyze}
-            error={error}
-          />
-        )}
+{(status === 'idle' || status === 'error') && (
+  <>
+    <UrlInput
+      url={url}
+      setUrl={setUrl}
+      apiKey={apiKey}
+      onSaveApiKey={handleSaveApiKey}
+      onAnalyze={handleAnalyze}
+      error={error}
+    />
+    {history.length > 0 && (
+      <HistoryList
+        history={history}
+        onReanalyze={(historyUrl) => setUrl(historyUrl)}
+        onClear={() => {
+          setHistory([]);
+          localStorage.removeItem('pd_history');
+        }}
+      />
+    )}
+  </>
+)}
 
         {/* Loading durumu */}
         {status === 'loading' && (
